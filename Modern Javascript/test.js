@@ -11,7 +11,6 @@ const obj = {
 //Javascript evaluates the mystery property first.
 console.log("does not work:" + obj.mystery);
 //Property has the value of answer
-// Which means that this work
 console.log("works:" + obj.answer);
 
 // Destructioning objects
@@ -34,15 +33,14 @@ console.log(circleArea(circle, { precision: 5 }));
 const [first, ...restOfItems] = [10, 20, 30, 40];
 console.log(first);
 console.log(restOfItems);
-//const [value, setValue] = useState(initialValue);
 //classes
-// classes is shared structure and behaviour objects 
+// classes is shared structure and behaviour of objects 
 
 class Person {
   constructor(name) {
     this.name = name;
   }
-  //the greet functions uses the values they store on each instanse(betoning)
+  //the greet functions uses the values they store on each instanse.
   greet() {
     console.log(`Hello ${this.name}!`);
   }
