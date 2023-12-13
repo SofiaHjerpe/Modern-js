@@ -14,7 +14,7 @@ console.log("does not work:" + obj.mystery);
 // Which means that this work
 console.log("works:" + obj.answer);
 
-// Destructurning objects
+// Destructioning objects
 const { PI, E, SQRT2 } = Math;
 
 const circle = {
@@ -28,20 +28,21 @@ const circleArea = ({ radius }, { precision = 2 } = {}) =>
   (PI * radius * radius).toFixed(precision);
 
 console.log(circleArea(circle, { precision: 5 }));
-// Destructuring arrays
-// two commas to scip third
+// Destructioning arrays
+// two commas to scip third element
 //  const [first, second,, forth] = [10, 20, 30, 40];
 const [first, ...restOfItems] = [10, 20, 30, 40];
 console.log(first);
 console.log(restOfItems);
 //const [value, setValue] = useState(initialValue);
-// shared structure and behaviour objects 
+//classes
+// classes is shared structure and behaviour objects 
 
 class Person {
   constructor(name) {
     this.name = name;
   }
-  //the greet functions uses the values they store on each instanse
+  //the greet functions uses the values they store on each instanse(betoning)
   greet() {
     console.log(`Hello ${this.name}!`);
   }
@@ -51,8 +52,7 @@ class Student extends Person {
     //constructor funtion gets called when we instantiate(betonar)
     // The student class expects a name argument and a level argument
     //since the person class extends student class the super() function can
-    //be called to reference back to Person constructior for name.
-    // an object of the class
+    //be called to reference back to Person constructor for name.
   constructor(name, level) {
     super(name);
     this.level = level;
@@ -71,7 +71,7 @@ o3.greet = () => console.log("I am special!");
 o1.greet();
 o2.greet();
 o3.greet();
-//.then is less readable
+//promises
 // const fetchData = () => {
 //   fetch('https://api.github.com').then(resp => {
 //     resp.json().then(data => {
@@ -79,8 +79,8 @@ o3.greet();
 //     });
 //   });
 // };
-//await calls neads to label the functions as async
 //same as above
+//await calls is used and then nead to label the functions as async
 const fetchData = async () => {
   const resp = await fetch('https://api.github.com');
   const data = await resp.json();
