@@ -35,3 +35,56 @@ const [first, ...restOfItems] = [10, 20, 30, 40];
 console.log(first);
 console.log(restOfItems);
 //const [value, setValue] = useState(initialValue);
+// shared structure and behaviour objects 
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  //the greet functions uses the values they store on each instanse
+  greet() {
+    console.log(`Hello ${this.name}!`);
+  }
+}
+//every student is also a person
+class Student extends Person {
+    //constructor funtion gets called when we instantiate(betonar)
+    // The student class expects a name argument and a level argument
+    //since the person class extends student class the super() function can
+    //be called to reference back to Person constructior for name.
+    // an object of the class
+  constructor(name, level) {
+    super(name);
+    this.level = level;
+  }
+  greet() {
+    console.log(`Hello ${this.name} from ${this.level}`);
+  }
+}
+
+const o1 = new Person("Max");
+const o2 = new Student("Tina", "1st Grade");
+//o3 uses own directly defined greet method.
+const o3 = new Student("Mary", "2nd Grade");
+o3.greet = () => console.log("I am special!");
+
+o1.greet();
+o2.greet();
+o3.greet();
+//.then is less readable
+// const fetchData = () => {
+//   fetch('https://api.github.com').then(resp => {
+//     resp.json().then(data => {
+//       console.log(data);
+//     });
+//   });
+// };
+//await calls neads to label the functions as async
+//same as above
+const fetchData = async () => {
+  const resp = await fetch('https://api.github.com');
+  const data = await resp.json();
+  console.log(data);
+};
+
+fetchData();
